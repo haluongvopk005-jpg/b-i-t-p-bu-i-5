@@ -1,0 +1,64 @@
+@page
+@{
+    ViewData["Title"] = "Bài 1 - Weekend Check";
+
+    DateTime today = DateTime.Now;
+
+    bool isWeekend = today.DayOfWeek == DayOfWeek.Saturday ||
+                     today.DayOfWeek == DayOfWeek.Sunday;
+}
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bài 1 - Weekend Check</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 60px;
+        }
+
+        nav {
+            margin-bottom: 40px;
+        }
+
+        nav a {
+            margin: 0 10px;
+            text-decoration: none;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        .result {
+            font-size: 24px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="/">Bài 1 - Weekend Check</a>
+        <a href="/Products">Bài 2 - Products</a>
+    </nav>
+
+    <h1>Kiểm tra cuối tuần</h1>
+
+    <p>Today is: @today.ToString("dddd, dd/MM/yyyy")</p>
+
+    @if (isWeekend)
+    {
+        <div class="result">Have nice weekend</div>
+    }
+    else
+    {
+        <div class="result">Have a nice day!</div>
+    }
+
+</body>
+</html>

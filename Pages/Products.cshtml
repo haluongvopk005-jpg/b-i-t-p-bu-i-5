@@ -1,0 +1,89 @@
+@page
+@using WebProgramming_Bai1_Bai2.Models
+@{
+    ViewData["Title"] = "Bài 2 - Product List";
+
+    var products = new List<Product>
+    {
+        new Product { Id = 1, Name = "Laptop", Price = 15000000 },
+        new Product { Id = 2, Name = "Chuột máy tính", Price = 350000 },
+        new Product { Id = 3, Name = "Bàn phím", Price = 750000 },
+        new Product { Id = 4, Name = "Tai nghe", Price = 1200000 }
+    };
+}
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bài 2 - Product List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 60px;
+        }
+
+        nav {
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        nav a {
+            margin: 0 10px;
+            text-decoration: none;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        table {
+            width: 80%;
+            margin: 30px auto;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid #333;
+            padding: 12px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #eee;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="/">Bài 1 - Weekend Check</a>
+        <a href="/Products">Bài 2 - Products</a>
+    </nav>
+
+    <h1>Danh sách sản phẩm</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var product in products)
+            {
+                <tr>
+                    <td>@product.Id</td>
+                    <td>@product.Name</td>
+                    <td>@product.Price.ToString("N0") VNĐ</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</body>
+</html>
